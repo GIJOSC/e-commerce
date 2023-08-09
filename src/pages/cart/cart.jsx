@@ -24,11 +24,15 @@ export const Cart = () => {
           }
         })}
       </div>
-      <div className="checkout">
-        <p> Subtotal: R${totalAmount}</p>
-        <button onClick={() => navigate("/")}> Continue comprando</button>
-        <button>Finalizar compra</button>
-      </div>
+      {totalAmount > 0 ? (
+        <div className="checkout">
+          <p> Subtotal: R${totalAmount}</p>
+          <button onClick={() => navigate("/")}> Continue comprando</button>
+          <button>Finalizar compra</button>
+        </div>
+      ) : (
+        <h1> Seu carrinho está vazio!</h1>
+      )}
     </div>
   );
 };
